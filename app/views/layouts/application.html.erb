@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CloudProjectApp</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>CloudProjectApp</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<header>
+  <div class="header-logo">
+    <% if @current_user %>
+      <%= link_to("CloudProjectApp", "/project/index") %>
+    <% else %>
+      <%= link_to("CloudProjectApp", "/") %>
+    <% end %>
+  </div>
+  <ul class="header-menus">
+    <% if @current_user %>
+      <li>
+        <%= link_to(@current_user.name, "/user/#{@current_user.id}") %>
+      </li>
+      <li>
+        <%= link_to("プロジェクト作成", "/project/new") %>
+      </li>
+      <li>
+        <%= link_to("プロジェクト一覧", "/project/index") %>
+      </li>
+      <li>
+        <%= link_to("ログアウト", "/user/logout", {method: :post}) %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to("CloudProjectAppとは", "/about") %>
+      </li>
+      <li>
+        <%= link_to("新規登録", "/user/sign_up") %>
+      </li>
+      <li>
+        <%= link_to("ログイン", "/user/sign_in") %>
+      </li>
+    <% end %>
+  </ul>
+</header>
+
+<!--通知-->
+<% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= yield %>
+</body>
+
 </html>
