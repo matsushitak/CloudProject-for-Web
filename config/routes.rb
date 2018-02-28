@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
   # ホーム
-  get "/" => "home#top"
-  get "/about" => "home#about"
+  get "/home/about" => "home#about"
 
   # ユーザー
   get "/user/sign_up" => "user#sign_up"
@@ -13,7 +12,7 @@ Rails.application.routes.draw do
   get "/user/:id" => "user#show"
 
   # プロジェクト
-  get "/project/index" => "project#index"
+  get "/" => "project#index"
   get "/project/new" => "project#new"
   post "/project/new_action" => "project#new_action"
 

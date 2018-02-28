@@ -14,7 +14,7 @@ class UserController < ApplicationController
     if @user.save
       flash[:flash] = "登録完了しました"
       session[:user_id] = @user.id
-      redirect_to("/project/index")
+      redirect_to("/")
     else
       @error_message = "不正です"
       render("user/sign_up")
@@ -34,7 +34,7 @@ class UserController < ApplicationController
     if @user && @user.authenticate(@password)
       flash[:flash] = "ログインしました"
       session[:user_id] = @user.id
-      redirect_to("/project/index")
+      redirect_to("/")
     else
       @error_message = "不正です"
       render("user/sign_in")
