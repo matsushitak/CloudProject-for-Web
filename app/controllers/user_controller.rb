@@ -7,13 +7,17 @@ class UserController < ApplicationController
 
   # 新規登録時
   def sign_up_action
-    @user = User.new(name: params[:name], email: params[:email], password: params[:password])
+    @name = params[:name]
+    @email = params[:email]
+    @password = params[:password]
+    @user = User.new(name: @name, email: @email, password: @password)
     if @user.save
-      flash[:flash] = "ログインしました"
-      section[:user_id] = @user.id
+      flash[:flash] = "登録完了しました"
+      session[:user_id] = @user.id
       redirect_to("/project/index")
     else
-      render(user/sign_up)
+      @error_message = "不正です"
+      render("user/sign_up")
     end
   end
 
@@ -24,20 +28,24 @@ class UserController < ApplicationController
 
   # ログイン時
   def sign_in_action
-    @user = User.find_by(email: params[:email])
-    if @user.authenticate(params[:password])
+    @email = params[:email]
+    @password = params[:password]
+    @user = User.find_by(email: @email)
+    if @user && @user.authenticate(@password)
       flash[:flash] = "ログインしました"
-      section[:user_id] = @user.id
+      session[:user_id] = @user.id
       redirect_to("/project/index")
     else
-      render(user/sign_in)
+      @error_message = "不正です"
+      render("user/sign_in")
     end
   end
 
   # ログアウト時
   def sign_out_action
     flash[:notice] = "ログアウトしました"
-    section[:user_id] = nil
+    session[:user_id] = nil
+    redirect_to("/")
   end
 
   # ユーザー詳細画面表示時

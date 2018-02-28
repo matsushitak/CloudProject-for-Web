@@ -1,2 +1,22 @@
-<h1>User#sign_up</h1>
-<p>Find me in app/views/user/sign_up.html.erb</p>
+<div class="container">
+  <div class="form-heading">新規登録</div>
+  <div class="form-container">
+    <div class="form-body">
+      <% if @error_message %>
+        <div class="form-error">
+          <%= @error_message %>
+        </div>
+      <% end %>
+
+      <%= form_tag("/user/sign_up_action") do %>
+        <p>ユーザー名</p>
+        <input name="name" value="<%= @name %>">
+        <p>メールアドレス</p>
+        <input name="email" value="<%= @email %>">
+        <p>パスワード</p>
+        <input type="password" name="password" value="<%= @password %>">
+        <input type="submit" value="登録">
+      <% end %>
+    </div>
+  </div>
+</div>
