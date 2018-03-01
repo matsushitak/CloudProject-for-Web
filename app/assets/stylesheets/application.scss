@@ -14,13 +14,15 @@
  *= require_self
  */
 
+@import "values/color";
+@import "values/size";
+
 /* reset ================================ */
 * {
   box-sizing: border-box;
 }
 
 html {
-  font: 100%/1.5 'Avenir Next', 'Hiragino Sans', sans-serif;
   line-height: 1.7;
   letter-spacing: 1px;
 }
@@ -33,7 +35,7 @@ ul, li {
 
 a {
   text-decoration: none;
-  color: #2d3133;
+  color: $black_1;
   font-size: 14px;
 }
 
@@ -57,61 +59,47 @@ header {
   position: absolute;
   z-index: 1;
   width: 100%;
-}
 
-.header-logo {
-  float: left;
-  padding-left: 20px;
-  color: white;
-  font-size: 22px;
-  line-height: 64px;
-
-  a {
-    color: white;
+  .header_logo {
+    float: left;
+    padding-left: 20px;
+    color: $white_1;
     font-size: 22px;
-  }
-}
-
-.header-menus {
-  float: right;
-  padding-right: 20px;
-
-  li {
-    float: left;
     line-height: 64px;
-    font-size: 13px;
-    color: white;
-    padding-left: 15px;
+
+    a {
+      color: $white_1;
+      font-size: 22px;
+    }
   }
 
-  a {
-    float: left;
-    font-size: 13px;
-    color: white;
-  }
+  .header_menus {
+    float: right;
+    padding-right: 40px;
 
-  .fa {
-    padding-right: 5px;
-  }
+    li {
+      float: left;
+      line-height: 64px;
+      font-size: 13px;
+      color: $white_1;
+      padding-left: 15px;
+    }
 
-  input[type="submit"] {
-    padding: 0 20px;
-    float: left;
-    line-height: 64px;
-    color: white;
-    margin: 0;
-    font-size: 13px;
+    a {
+      float: left;
+      font-size: 13px;
+      color: $white_1;
+    }
   }
 }
 
 /* フラッシュ ================================ */
 .flash {
   padding: 10px 0;
-  color: white;
-  background: rgb(251, 170, 88);
+  color: $white_1;
+  background: $flash;
   text-align: center;
   position: absolute;
-  top: 64px;
   z-index: 10;
   width: 100%;
   border-radius: 0 0 2px 2px;

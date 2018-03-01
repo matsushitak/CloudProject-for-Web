@@ -10,13 +10,15 @@
     <ul>
       <% @projects.each do |project| %>
         <li>
+          <%= link_to("/project/#{project.id}") do %>
           <div class="card">
-            <img src="/top.jpg" alt="Avatar">
+            <img src="/assets/top.jpg" alt="Avatar">
             <div class="container">
               <h4><b><%= project.title %></b></h4>
               <p><%= project.user.name %></p>
             </div>
           </div>
+          <% end %>
         </li>
       <% end %>
     </ul>

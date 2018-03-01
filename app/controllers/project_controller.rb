@@ -7,7 +7,7 @@ class ProjectController < ApplicationController
 
   # 新規作成画面表示時
   def new
-
+    @project = Project.new
   end
 
   # 新規作成時

@@ -13,10 +13,10 @@
 <body>
 
 <header>
-  <div class="header-logo">
+  <div class="header_logo">
     <%= link_to("CloudProjectApp", "/") %>
   </div>
-  <ul class="header-menus">
+  <ul class="header_menus">
     <% if @current_user %>
       <li>
         <%= link_to(@current_user.name, "/user/#{@current_user.id}") %>

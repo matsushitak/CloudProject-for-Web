@@ -2,9 +2,10 @@
   <div class="form-heading">プロジェクト作成</div>
   <div class="form-container">
     <div class="form-body">
-      <% if @error_message %>
-        <div class="form-error">
-          <%= @error_message %>
+
+      <% if @project.errors.any? %>
+        <div class="form_error">
+          <p>入力が不正です</p>
         </div>
       <% end %>
 
