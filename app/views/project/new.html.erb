@@ -1,2 +1,36 @@
-<h1>Project#new</h1>
-<p>Find me in app/views/project/new.html.erb</p>
+<div class="new-container">
+  <div class="form-heading">プロジェクト作成</div>
+  <div class="form-container">
+    <div class="form-body">
+      <% if @error_message %>
+        <div class="form-error">
+          <%= @error_message %>
+        </div>
+      <% end %>
+
+      <%= form_tag("/project/new_action") do %>
+        <p>タイトル</p>
+        <input name="title" value="<%= @title %>">
+        <p>画像</p>
+        <input name="image" type="file" value="<%= @image %>">
+        <p>概要</p>
+        <input name="overview" value="<%= @overview %>">
+        <p>カテゴリ</p>
+        <select name="category">
+          <% Project.categories.each do |key, value| %>
+            <option value="<%= key %>"><%= value %></option>
+          <% end %>
+        </select>
+        <p>募集開始日時</p>
+        <input name="recruitment_date_start" type="date" value="<%= @recruitment_date_start %>">
+        <p>募集終了日時</p>
+        <input name="recruitment_date_finish" type="date" value="<%= @recruitment_date_finish %>">
+        <p>募集人数</p>
+        <input name="people_count_goal" value="<%= @people_count_goal %>">
+        <p>詳細</p>
+        <input name="text" value="<%= @text %>">
+        <input type="submit" value="作成">
+      <% end %>
+    </div>
+  </div>
+</div>

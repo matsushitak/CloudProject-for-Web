@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get "/" => "project#index"
   get "/project/new" => "project#new"
   post "/project/new_action" => "project#new_action"
+  get "/project/:id" => "project#show"
 
 end

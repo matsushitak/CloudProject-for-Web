@@ -1,7 +1,25 @@
-<div class="main top-main">
-  <div class="top-message">
+<div class="container_index">
+
+  <div class="content_top">
     <h2>メインタイトル</h2>
     <p>サブタイトル</p>
-    <a href="/">プロジェクト作成</a>
   </div>
+
+  <div class="content_project">
+    <h2>プロジェクト</h2>
+    <ul>
+      <% @projects.each do |project| %>
+        <li>
+          <div class="card">
+            <img src="/top.jpg" alt="Avatar">
+            <div class="container">
+              <h4><b><%= project.title %></b></h4>
+              <p><%= project.user.name %></p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
 </div>

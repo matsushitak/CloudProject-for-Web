@@ -14,8 +14,16 @@ class Project < ApplicationRecord
 
   # カテゴリ
   validates :category, presence: true
-  # TODO:カテゴリを増やす
-  enum category: {technology: 0, anime: 1}
+  enum category: {
+      business: "ビジネス・起業",
+      charenge: "チャレンジ",
+      entertainment: "エンターテイメント",
+      event: "イベント",
+      food: "フード",
+      local: "地域",
+      sports: "スポーツ",
+      technology: "テクノロジー"
+  }
 
   # 募集開始日
   validates :recruitment_date_start, presence: true
@@ -24,8 +32,9 @@ class Project < ApplicationRecord
   validates :recruitment_date_finish, presence: true
 
   # 募集人数
-  validates :people_count_goal, presence: true
+  validates :people_count_goal, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
   # テキスト
   validates :text, presence: true
+
 end
