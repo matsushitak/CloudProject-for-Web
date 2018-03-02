@@ -1,0 +1,185 @@
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to ProjectRecreate (20180302093608)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "projects"[0m
+  ↳ db/migrate/20180302093608_project_recreate.rb:3
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20180302093608_project_recreate.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "projects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "image_name" varchar, "overview" text, "recruitment_date_start" date, "recruitment_date_finish" date, "target_number_of_people" integer, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180302093608_project_recreate.rb:4
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "projects" ADD "user_id" integer[0m
+  ↳ db/migrate/20180302093608_project_recreate.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_projects_on_user_id" ON "projects" ("user_id")[0m
+  ↳ db/migrate/20180302093608_project_recreate.rb:15
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180302093608"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started POST "/project/new_action" for 127.0.0.1 at 2018-03-02 18:51:42 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matsushita/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0.rc1/lib/active_record/log_subscriber.rb:98
+Processing by ProjectController#new_action as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yob8JvUE9ruQcwEO3JsbMWKInGa7qOl6dCTC/CUGGSvJ3XIxjBZUJeTfCAIoQIcjlJ0iQOdTJDzxdqxzzn7sAw==", "title"=>"タイトル！！！", "image"=>"", "overview"=>"なんかします", "category"=>"business", "recruitment_date_start"=>"2018-03-01", "recruitment_date_finish"=>"2018-03-31", "people_count_goal"=>"", "text"=>"詳細はありません"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/project_controller.rb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:37
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/project_controller.rb:37
+  Rendering project/new.html.erb within layouts/application
+  Rendered project/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 371ms (Views: 328.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/project/new_action" for 127.0.0.1 at 2018-03-02 18:51:56 +0900
+Processing by ProjectController#new_action as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0EjgClpfvfAklnhp8jf3yhl5lq6w9+/BNZwF4UB9TkbTE24dI00fblA6cWUG7GvY72woiOwMIoewzmtuqwW7bg==", "title"=>"タイトル！！！", "image"=>"", "overview"=>"なんかします", "category"=>"business", "recruitment_date_start"=>"2018-03-01", "recruitment_date_finish"=>"2018-03-31", "people_count_goal"=>"2", "text"=>"詳細はありません"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/project_controller.rb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:37
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/project_controller.rb:37
+  Rendering project/new.html.erb within layouts/application
+  Rendered project/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 31ms (Views: 27.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/project/new_action" for 127.0.0.1 at 2018-03-02 18:52:09 +0900
+Processing by ProjectController#new_action as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HE5PlOmbY9D2XUMIyWoM2x3f1w67jcyyb3+A8MKjdVkfFcGDkInBToLxSgQ9sZDJ68ppKOd2AfTqLe5/KduAcQ==", "title"=>"タイトル！！！", "image"=>"", "overview"=>"なんかします", "category"=>"business", "recruitment_date_start"=>"2018-03-01", "recruitment_date_finish"=>"2018-03-31", "people_count_goal"=>"34", "text"=>"詳細はありません"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/project_controller.rb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:37
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/project_controller.rb:37
+  Rendering project/new.html.erb within layouts/application
+  Rendered project/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 31ms (Views: 27.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/project/new_action" for 127.0.0.1 at 2018-03-02 18:53:01 +0900
+Processing by ProjectController#new_action as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aQwLWifHep3ZNBReJ1+565p2ME0mjvLAs0KVGbbecXZqV4VNXtXYA62YHVLThCX5bGOOa3p1P4Y2EPuWXaaEXg==", "title"=>"タイトル！！！", "image"=>"", "overview"=>"なんかします", "category"=>"business", "recruitment_date_start"=>"2018-03-01", "recruitment_date_finish"=>"2018-03-31", "people_count_goal"=>"3", "text"=>"詳細はありません"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/project_controller.rb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:37
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/project_controller.rb:37
+  Rendering project/new.html.erb within layouts/application
+  Rendered project/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 31ms (Views: 27.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/project/new_action" for 127.0.0.1 at 2018-03-02 18:53:05 +0900
+Processing by ProjectController#show as HTML
+  Parameters: {"id"=>"new_action"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:49
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Project with 'id'=new_action):
+  
+app/controllers/project_controller.rb:49:in `show'
+Started GET "/project/new" for 127.0.0.1 at 2018-03-02 18:53:11 +0900
+Processing by ProjectController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering project/new.html.erb within layouts/application
+  Rendered project/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 37ms (Views: 34.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/project/new_action" for 127.0.0.1 at 2018-03-02 18:53:26 +0900
+Processing by ProjectController#new_action as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z2iswm/4Caz3d6ybVnQtDq1pW+P7eVFeb49IFETG60LMMyLVFuqrMoPbpZeir7EcW3zlxaeCnBjq3Sabr74eag==", "title"=>"タイトル！！！", "image"=>"", "overview"=>"なんかします", "category"=>"business", "recruitment_date_start"=>"2018-03-01", "recruitment_date_finish"=>"2018-03-31", "target_number_of_people"=>"3", "text"=>"詳細はありません"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/project_controller.rb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:37
+  [1m[36mProject Create (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("title", "image_name", "overview", "recruitment_date_start", "recruitment_date_finish", "target_number_of_people", "text", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "タイトル！！！"], ["image_name", "default.png"], ["overview", "なんかします"], ["recruitment_date_start", "2018-03-01"], ["recruitment_date_finish", "2018-03-31"], ["target_number_of_people", 3], ["text", "詳細はありません"], ["created_at", "2018-03-02 09:53:26.175849"], ["updated_at", "2018-03-02 09:53:26.175849"], ["user_id", 1]]
+  ↳ app/controllers/project_controller.rb:37
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/project_controller.rb:37
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 14ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-02 18:53:26 +0900
+Processing by ProjectController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering project/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/project/index.html.erb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/project/index.html.erb:18
+  Rendered project/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 32ms (Views: 27.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/project/new" for 127.0.0.1 at 2018-03-02 18:54:08 +0900
+Processing by ProjectController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering project/new.html.erb within layouts/application
+  Rendered project/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 31ms (Views: 27.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/project/new" for 127.0.0.1 at 2018-03-02 18:54:09 +0900
+Processing by ProjectController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering project/new.html.erb within layouts/application
+  Rendered project/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 32ms (Views: 28.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/user/1" for 127.0.0.1 at 2018-03-02 18:54:10 +0900
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:64
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 39ms (Views: 29.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/project/new" for 127.0.0.1 at 2018-03-02 18:54:10 +0900
+Processing by ProjectController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering project/new.html.erb within layouts/application
+  Rendered project/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 34ms (Views: 30.4ms | ActiveRecord: 0.1ms)
+
+

@@ -10,20 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_28_101730) do
+ActiveRecord::Schema.define(version: 2018_03_02_093608) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.string "image_name"
-    t.string "overview"
-    t.integer "category"
+    t.text "overview"
     t.date "recruitment_date_start"
     t.date "recruitment_date_finish"
-    t.integer "people_count_goal"
-    t.string "text"
-    t.integer "user_id"
+    t.integer "target_number_of_people"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

@@ -21,17 +21,17 @@ class ProjectController < ApplicationController
     @category = params[:category]
     @recruitment_date_start = params[:recruitment_date_start]
     @recruitment_date_finish = params[:recruitment_date_finish]
-    @people_count_goal = params[:people_count_goal]
+    @target_number_of_people = params[:target_number_of_people]
     @text = params[:text]
     @project = Project.new(
         user_id: @current_user.id,
         title: @title,
         image_name: "default.png",
         overview: @overview,
-        category: @category,
+        # category: @category,
         recruitment_date_start: @recruitment_date_start,
         recruitment_date_finish: @recruitment_date_finish,
-        people_count_goal: @people_count_goal.to_i,
+        target_number_of_people: @target_number_of_people.to_i,
         text: @text
     )
     if @project.save
@@ -39,6 +39,7 @@ class ProjectController < ApplicationController
       redirect_to("/")
     else
       @error_message = "プロジェクトを作成できません"
+      puts @project.errors.full_messages
       render("project/new")
     end
   end

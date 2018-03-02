@@ -3,6 +3,19 @@ class Project < ApplicationRecord
   # 投稿ユーザー
   belongs_to :user
 
+  # カテゴリ
+  enum category: {
+      business: "ビジネス・起業",
+      charenge: "チャレンジ",
+      entertainment: "エンターテイメント",
+      event: "イベント",
+      food: "フード",
+      local: "地域",
+      sports: "スポーツ",
+      technology: "テクノロジー",
+      other: "その他"
+  }
+
   # タイトル
   validates :title, presence: true, length: {maximum: 50}
 
@@ -12,19 +25,6 @@ class Project < ApplicationRecord
   # 概要
   validates :overview, presence: true, length: {maximum: 300}
 
-  # カテゴリ
-  validates :category, presence: true
-  enum category: {
-      business: "ビジネス・起業",
-      charenge: "チャレンジ",
-      entertainment: "エンターテイメント",
-      event: "イベント",
-      food: "フード",
-      local: "地域",
-      sports: "スポーツ",
-      technology: "テクノロジー"
-  }
-
   # 募集開始日
   validates :recruitment_date_start, presence: true
 
@@ -32,9 +32,8 @@ class Project < ApplicationRecord
   validates :recruitment_date_finish, presence: true
 
   # 募集人数
-  validates :people_count_goal, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :target_number_of_people, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
   # テキスト
   validates :text, presence: true
-
 end
