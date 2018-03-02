@@ -1,0 +1,84 @@
+@import "values/color";
+@import "values/size";
+
+// サインアップ画面
+.container_sign_up {
+  width: 100vw;
+  height: 100vh;
+  background-color: $background_white;
+  padding: $header_height 0;
+
+  h2 {
+    color: $black_1;
+  }
+
+  .form_container {
+    width: 40%;
+    padding: 16px;
+    margin: 100px auto 100px auto;
+    background-color: $white_1;
+    box-shadow: 0 4px 8px 0 $shadow;
+    border-radius: 6px;
+    @media screen and (max-width: $screen_tablet_width){
+      width: 70%;
+    }
+    @media screen and (max-width: $screen_mobile_width) {
+      width: 90%;
+    }
+
+    .form_body {
+      text-align: center;
+
+      .form_error {
+        color: $error;
+      }
+
+      .form_input {
+        p {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+// サインイン画面
+.container_sign_in {
+  width: 100vw;
+  height: 100vh;
+  background-color: $background_white;
+  padding: $header_height 0;
+
+  h2 {
+    color: $black_1;
+  }
+
+  .form_container {
+    width: 40%;
+    padding: 16px;
+    margin: 100px auto 100px auto;
+    background-color: $white_1;
+    box-shadow: 0 4px 8px 0 $shadow;
+    border-radius: 6px;
+    @media screen and (max-width: $screen_tablet_width){
+      width: 70%;
+    }
+    @media screen and (max-width: $screen_mobile_width) {
+      width: 90%;
+    }
+
+    .form_body {
+      text-align: center;
+
+      .form_error {
+        color: $error;
+      }
+
+      .form_input {
+        p {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

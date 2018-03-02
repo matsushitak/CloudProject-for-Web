@@ -59,6 +59,7 @@ header {
   position: absolute;
   z-index: 1;
   width: 100%;
+  background-color: $background_header;
 
   .header_logo {
     float: left;

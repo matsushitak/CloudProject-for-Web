@@ -6,6 +6,7 @@
 .container_index {
   width: 100%;
   height: auto;
+  padding: $header_height 0;
 
   .content_top {
     padding: 140px 0 140px 0;
@@ -77,4 +78,10 @@
       }
     }
   }
+}
+
+.container_new {
+  width: 100%;
+  height: auto;
+  padding: $header_height 0;
 }

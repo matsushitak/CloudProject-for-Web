@@ -9,14 +9,25 @@ class UserController < ApplicationController
   def sign_up_action
     @name = params[:name]
     @email = params[:email]
-    @password = params[:password]
-    @user = User.new(name: @name, email: @email, password: @password)
+    @password_1 = params[:password_1]
+    @password_2 = params[:password_2]
+    if @password_1 != @password_2
+      @error_message = "同じパスワードを入力してください"
+      render("user/sign_up")
+      return
+    end
+    if User.find_by(email: @email)
+      @error_message = "このメールアドレスは登録されています"
+      render("user/sign_up")
+      return
+    end
+    @user = User.new(name: @name, email: @email, password: @password_1)
     if @user.save
       flash[:flash] = "登録完了しました"
       session[:user_id] = @user.id
       redirect_to("/")
     else
-      @error_message = "不正です"
+      @error_message = "正しく入力してください"
       render("user/sign_up")
     end
   end
@@ -36,7 +47,7 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect_to("/")
     else
-      @error_message = "不正です"
+      @error_message = "メールアドレス・パスワードが正しくありません"
       render("user/sign_in")
     end
   end

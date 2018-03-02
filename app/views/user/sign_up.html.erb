@@ -1,22 +1,41 @@
-<div class="container">
-  <div class="form-heading">新規登録</div>
-  <div class="form-container">
-    <div class="form-body">
+<div class="container_sign_up">
+  <div class="form_container">
+
+    <div class="form_body">
+
       <% if @error_message %>
-        <div class="form-error">
+        <div class="form_error">
           <%= @error_message %>
         </div>
       <% end %>
 
-      <%= form_tag("/user/sign_up_action") do %>
-        <p>ユーザー名</p>
-        <input name="name" value="<%= @name %>">
-        <p>メールアドレス</p>
-        <input name="email" value="<%= @email %>">
-        <p>パスワード</p>
-        <input type="password" name="password" value="<%= @password %>">
-        <input type="submit" value="登録">
-      <% end %>
+      <div class="form_input">
+        <%= form_tag("/user/sign_up_action") do %>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <p>ユーザー名</p>
+            <input class="mdl-textfield__input" type="text" name="name" value="<%= @name %>">
+          </div>
+          </p>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <p>メールアドレス</p>
+            <input class="mdl-textfield__input" type="text" name="email" value="<%= @email %>">
+          </div>
+          </p>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <p>パスワード</p>
+            <input class="mdl-textfield__input" type="password" name="password_1">
+          </div>
+          </p>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <p>パスワード(確認)</p>
+            <input class="mdl-textfield__input" type="password" name="password_2">
+          </div>
+          </p>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+            登録
+          </button>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

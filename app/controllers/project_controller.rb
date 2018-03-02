@@ -12,6 +12,9 @@ class ProjectController < ApplicationController
 
   # 新規作成時
   def new_action
+    # TODO: 画像をアップロード
+    # TODO: 画像のバリデーション
+    # TODO: 日付のバリデーション
     @title = params[:title]
     @image = params[:image]
     @overview = params[:overview]
@@ -42,7 +45,7 @@ class ProjectController < ApplicationController
 
   # 詳細画面表示時
   def show
-
+    @project = Project.find(params[:id])
   end
 
 end

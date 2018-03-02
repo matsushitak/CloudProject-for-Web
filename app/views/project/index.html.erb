@@ -8,20 +8,18 @@
   <div class="content_project">
     <h2>プロジェクト</h2>
     <ul>
-      <% if @projects %>
-        <% @projects.each do |project| %>
-          <li>
-            <%= link_to("/project/#{project.id}") do %>
-              <div class="card">
-                <img src="/assets/top.jpg" alt="Avatar">
-                <div class="container">
-                  <h4><b><%= project.title %></b></h4>
-                  <p><%= project.user.name %></p>
-                </div>
-              </div>
-            <% end %>
-          </li>
-        <% end %>
+      <% @projects.each do |project| %>
+        <li>
+          <%= link_to("/project/#{project.id}") do %>
+          <div class="card">
+            <img src="/assets/top.jpg" alt="Avatar">
+            <div class="container">
+              <h4><b><%= project.title %></b></h4>
+              <p><%= project.user.name %></p>
+            </div>
+          </div>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   </div>
